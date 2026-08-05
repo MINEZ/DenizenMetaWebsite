@@ -26,7 +26,7 @@ namespace DenizenMetaWebsite.Controllers
             {
                 return Forbid();
             }
-            MetaSiteCore.ReloadMeta();
+            MetaSiteCore.ReloadMeta(true);
             return Ok();
         }
     }
