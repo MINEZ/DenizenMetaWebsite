@@ -1,5 +1,5 @@
 #!/bin/bash
-# 编译并在前台运行站点。仅监听回环地址，外部访问经由反向代理。
+# 编译并在当前控制台前台运行站点。仅监听回环地址，外部访问经由反向代理。
 set -e
 cd "$(dirname "$0")"
 dotnet build --configuration Release -o ./bin/live_release

@@ -1,5 +1,5 @@
 #!/bin/bash
-# 拉取更新并在名为 metasite 的 tmux 会话中重启站点。
+# 拉取更新并编译。启动请另行运行 ./start.sh。
 set -e
 cd "$(dirname "$0")"
 
@@ -10,8 +10,7 @@ git submodule update --init --recursive
 # 残留的 SourceLink 缓存会导致 MSB3030。
 rm -rf obj bin/live_release SharpDenizenTools/SharpDenizenTools/obj
 
-tmux kill-session -t metasite 2>/dev/null || true
-tmux new-session -d -s metasite "$(pwd)/start.sh"
+dotnet build --configuration Release -o ./bin/live_release
 
-echo "已在 tmux 会话 metasite 中启动。"
-echo "查看日志：tmux attach -t metasite   （脱离：Ctrl+B 然后 D）"
+echo
+echo "编译完成。停掉正在运行的站点后，运行 ./start.sh 启动。"
