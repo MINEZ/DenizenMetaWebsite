@@ -1,6 +1,9 @@
 obj/
 bin/
 config/
+cache/
 .vs/
 *.suo
 *.user
+
+.idea/
